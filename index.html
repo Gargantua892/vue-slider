@@ -16,15 +16,18 @@
             <div class="thumbnail-container" id="thumbnail-container">
                 <div class="slider-controller">
                     <div id="top-arrow">
-                        <i class="bi bi-arrow-up-circle" style="font-size: 2rem; color: #fff;"></i>
+                        <i class="bi bi-arrow-up-circle" style="font-size: 2rem; color: #fff;" @click="upImage"></i>
                     </div>
                     <div id="bottom-arrow">
-                        <i class="bi bi-arrow-down-circle" style="font-size: 2rem; color: #fff;"></i>
+                        <i class="bi bi-arrow-down-circle" style="font-size: 2rem; color: #fff;" @click="downImage"></i>
                     </div>
                 </div>
                     
-                <div class="slider-thumb" v-for="img in films"> <img :src="img.image" alt=""></div>
-            </div>
+                <div class="slider-thumb"
+                v-for="(img, index) in films"
+                :class="activeItem === index ?'active' : 'overlay'"> 
+                    <img :src="img.image" alt=""></div>
+                </div>
             <div class="slider-item active">
                 <div class="caption-container">
                     <h2 class="slider-title">{{films[activeItem].title}}</h2>

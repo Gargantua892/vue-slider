@@ -30,8 +30,17 @@ createApp({
         }
     },
     methods: {
-        incrementer(){
-           activeItem++;
+        downImage(){
+           this.activeItem++;
+           if(this.activeItem === this.films.length){
+            this.activeItem = 0;
+           }
+        },
+        upImage(){
+            this.activeItem--;
+            if(this.activeItem < 0){
+                this.activeItem = this.films.length -1;
+            }
         }
     },
 }).mount("#app");
